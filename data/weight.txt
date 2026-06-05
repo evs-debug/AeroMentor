@@ -1,0 +1,11 @@
+Definition:
+Weight is one of the four fundamental forces of flight and acts downward due to gravity.
+
+Key Facts:
+- Opposes lift.
+- Depends on aircraft mass and gravitational acceleration.
+- Increases fuel consumption and runway requirements.
+- Changes during flight as fuel is burned.
+
+Importance:
+Aircraft performance calculations depend heavily on weight, especially during takeoff and landing.

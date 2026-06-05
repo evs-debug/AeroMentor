@@ -1,0 +1,7 @@
+Lift is one of the four forces of flight.
+
+Lift is generated when air flows around a wing and creates a pressure difference.
+
+The pressure above the wing is generally lower than below the wing, producing an upward force.
+
+Lift must overcome weight for an aircraft to become airborne.

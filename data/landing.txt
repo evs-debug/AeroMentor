@@ -1,0 +1,11 @@
+Definition:
+Landing is the phase of flight in which an aircraft returns to the ground and decelerates safely.
+
+Key Facts:
+- Requires proper approach speed and configuration.
+- Influenced by wind, runway conditions, and aircraft weight.
+- Pilots use flaps and landing gear to assist the landing.
+- Precision approaches may use systems such as ILS.
+
+Importance:
+Landing requires precise aircraft control and is one of the most safety-critical phases of flight.

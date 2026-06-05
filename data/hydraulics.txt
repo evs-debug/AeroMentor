@@ -1,0 +1,11 @@
+Definition:
+Hydraulic systems use pressurized fluid to operate aircraft components.
+
+Key Facts:
+- Power flight controls.
+- Operate landing gear systems.
+- Used for brakes and other mechanisms.
+- Provide high force with precise control.
+
+Importance:
+Hydraulic systems are essential for modern aircraft operation.

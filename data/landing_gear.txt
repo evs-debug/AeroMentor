@@ -1,0 +1,11 @@
+Definition:
+Landing gear is the structure that supports an aircraft during ground operations.
+
+Key Facts:
+- Supports takeoff, landing, and taxiing.
+- Usually retractable on larger aircraft.
+- Includes wheels, brakes, and shock absorbers.
+- Designed to absorb landing loads.
+
+Importance:
+Landing gear enables safe ground operations and protects the aircraft structure.

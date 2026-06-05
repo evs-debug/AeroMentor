@@ -1,0 +1,11 @@
+Definition:
+Takeoff is the phase of flight in which an aircraft accelerates along a runway and becomes airborne.
+
+Key Facts:
+- Requires sufficient thrust and lift.
+- Performance depends on aircraft weight and weather.
+- Pilots monitor speeds such as V1, VR, and V2.
+- Requires careful runway and obstacle analysis.
+
+Importance:
+Takeoff is one of the most critical phases of flight and demands precise pilot performance.

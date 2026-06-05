@@ -1,0 +1,11 @@
+Definition:
+Air Traffic Control (ATC) is a service that manages aircraft movement on the ground and in the air.
+
+Key Facts:
+- Provides instructions to pilots.
+- Maintains aircraft separation.
+- Improves traffic flow and safety.
+- Operates from towers, approach facilities, and control centers.
+
+Importance:
+ATC plays a critical role in ensuring safe and efficient air travel.

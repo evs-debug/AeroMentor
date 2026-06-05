@@ -1,0 +1,11 @@
+Definition:
+The Auxiliary Power Unit (APU) is a small engine that provides power when the main engines are not operating.
+
+Key Facts:
+- Supplies electrical power.
+- Provides pneumatic air for engine starts.
+- Commonly located in the aircraft tail.
+- Operates independently of the main engines.
+
+Importance:
+The APU allows aircraft systems to function while on the ground without external support.

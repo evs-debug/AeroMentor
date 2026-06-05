@@ -1,0 +1,11 @@
+Definition:
+Angle of attack is the angle between an aircraft wing and the oncoming airflow.
+
+Key Facts:
+- Increasing angle of attack generally increases lift.
+- Excessive angle of attack can cause a stall.
+- It is one of the most important concepts in aerodynamics.
+- Independent of aircraft attitude relative to the horizon.
+
+Importance:
+Pilots must understand angle of attack because it directly influences lift generation and stall risk.

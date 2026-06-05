@@ -1,0 +1,11 @@
+Definition:
+A turbojet is a jet engine that generates thrust primarily from exhaust gases.
+
+Key Facts:
+- Simpler than a turbofan.
+- Efficient at high speeds.
+- Produces higher noise levels.
+- Used on some military aircraft.
+
+Importance:
+Turbojets played a major role in the early development of jet aviation.

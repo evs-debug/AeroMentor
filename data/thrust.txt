@@ -1,0 +1,7 @@
+Thrust is one of the four fundamental forces of flight.
+
+Thrust is the forward force produced by an aircraft's engines. It allows the aircraft to accelerate and overcome aerodynamic drag.
+
+Jet engines generate thrust by accelerating air rearward. According to Newton's Third Law of Motion, pushing air backward produces an equal and opposite force that pushes the aircraft forward.
+
+The amount of thrust required depends on aircraft weight, altitude, speed, and flight conditions. During takeoff, maximum thrust is often used to achieve sufficient speed for flight.
