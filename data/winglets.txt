@@ -1,11 +1,19 @@
 Definition:
 Winglets are vertical or angled extensions located at the tips of aircraft wings.
 
-Key Facts:
-- Reduce induced drag.
-- Improve fuel efficiency.
-- Reduce wingtip vortices.
-- Common on modern commercial aircraft.
+How They Work:
+Winglets reduce wingtip vortices, which decreases induced drag and improves aerodynamic efficiency.
+
+Benefits:
+- Reduced fuel consumption
+- Increased range
+- Improved climb performance
+- Lower emissions
+
+Aircraft Examples:
+- Boeing 737
+- Boeing 787
+- Airbus A350
 
 Importance:
-Winglets help airlines save fuel and improve aircraft performance on long flights.
+Winglets improve aircraft performance and help airlines reduce operating costs.

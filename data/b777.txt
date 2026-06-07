@@ -1,11 +1,20 @@
 Definition:
-The Boeing 777 is a long-range wide-body commercial airliner developed by Boeing.
+The Boeing 777 is a long-range wide-body twin-engine airliner used on medium- and long-haul routes.
 
-Key Facts:
-- First entered service in 1995.
-- One of the largest twin-engine airliners.
-- Common variants include the 777-200, 777-300ER and 777X.
-- Designed for long-haul international operations.
+Specifications:
+The aircraft is available in several passenger and cargo variants.
+
+Passenger Capacity:
+Typical seating ranges from approximately 300 to over 400 passengers.
+
+Range:
+Many variants can operate flights exceeding 13,000 kilometers.
+
+Engines:
+The aircraft uses high-thrust turbofan engines produced by General Electric, Rolls-Royce, or Pratt & Whitney.
+
+Fuel Efficiency:
+Twin-engine efficiency allows the aircraft to operate long routes with lower fuel consumption than older four-engine aircraft.
 
 Importance:
-The Boeing 777 demonstrated that large twin-engine aircraft could safely and efficiently perform long-range flights.
+The Boeing 777 is one of the most successful long-haul commercial aircraft ever produced.

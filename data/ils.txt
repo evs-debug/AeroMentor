@@ -1,11 +1,18 @@
 Definition:
-The Instrument Landing System (ILS) is a precision approach system that assists aircraft during landing.
+The Instrument Landing System (ILS) is a precision approach system used to guide aircraft during landing.
 
-Key Facts:
-- Provides lateral guidance using the localizer.
-- Provides vertical guidance using the glideslope.
-- Commonly used during low visibility operations.
-- Improves landing accuracy and safety.
+How It Works:
+ILS provides lateral guidance through the localizer and vertical guidance through the glideslope.
+
+Components:
+- Localizer
+- Glideslope
+- Marker Beacons or DME
+
+Advantages:
+- Enables approaches in low visibility.
+- Improves landing accuracy.
+- Enhances operational safety.
 
 Importance:
-ILS allows pilots to safely approach and land aircraft when weather conditions reduce visual references.
+ILS is one of the most widely used precision approach systems in aviation.

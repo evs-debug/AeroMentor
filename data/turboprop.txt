@@ -1,11 +1,13 @@
 Definition:
 A turboprop engine combines a gas turbine engine with a propeller.
 
-Key Facts:
-- Efficient at lower speeds.
-- Common on regional aircraft.
-- Consumes less fuel on short routes.
-- Suitable for shorter runways.
+How It Works:
+The turbine drives a propeller that generates most of the aircraft's thrust.
+
+Advantages:
+- Excellent fuel efficiency at lower speeds.
+- Strong short-runway performance.
+- Lower operating costs.
 
 Importance:
-Turboprops remain important for regional and utility aviation operations.
+Turboprops are widely used on regional aircraft and short-haul routes.

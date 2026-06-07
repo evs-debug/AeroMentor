@@ -1,11 +1,14 @@
 Definition:
-A turbofan engine is the most common type of jet engine used on commercial airliners.
+A turbofan engine is the most common engine type used on modern commercial aircraft.
 
-Key Facts:
-- Uses a large fan at the front.
-- Produces both core and bypass thrust.
-- Highly fuel efficient.
-- Quieter than older engine designs.
+How It Works:
+A large fan at the front accelerates a significant volume of air. Some air passes through the engine core while the rest bypasses it.
+
+Advantages:
+- High fuel efficiency.
+- Lower noise levels.
+- Strong thrust production.
+- Suitable for commercial aviation.
 
 Importance:
-Turbofan engines power most modern passenger aircraft due to their efficiency and performance.
+Turbofan engines power most modern passenger airliners worldwide.

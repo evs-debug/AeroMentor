@@ -1,11 +1,20 @@
 Definition:
-The Boeing 737 is a narrow-body commercial airliner designed for short- and medium-haul routes.
+The Boeing 737 is a narrow-body commercial airliner used primarily on short- and medium-haul routes.
 
-Key Facts:
-- One of the best-selling commercial aircraft in history.
-- Commonly used by airlines worldwide.
-- Available in several variants including the 737 NG and 737 MAX families.
-- Typically seats between 130 and 230 passengers depending on configuration.
+Specifications:
+The aircraft is available in multiple generations including the Next Generation and MAX families.
+
+Passenger Capacity:
+Typical seating ranges from approximately 130 to 230 passengers.
+
+Range:
+The aircraft is capable of regional and medium-range operations.
+
+Engines:
+Modern variants use efficient CFM International turbofan engines.
+
+Fuel Efficiency:
+Improved engines and winglet designs reduce fuel consumption.
 
 Importance:
-The Boeing 737 forms the backbone of many airline fleets due to its versatility, efficiency, and widespread support infrastructure.
+The Boeing 737 is among the most widely operated commercial aircraft in the world.

@@ -1,11 +1,19 @@
 Definition:
-Fly-by-wire is a flight control system that replaces mechanical linkages with electronic controls.
+Fly-by-wire is an electronic flight control system that replaces many traditional mechanical control linkages.
 
-Key Facts:
-- Inputs are processed by computers.
-- Improves flight control precision.
-- Reduces aircraft weight.
-- Common on modern Airbus aircraft.
+How It Works:
+Pilot control inputs are converted into electronic signals that command flight control surfaces.
+
+Advantages:
+- Reduced weight
+- Improved reliability
+- Flight envelope protection
+- Enhanced aircraft performance
+
+Aircraft Examples:
+- Airbus A320
+- Airbus A350
+- Boeing 787
 
 Importance:
-Fly-by-wire technology improves safety, efficiency, and aircraft handling.
+Fly-by-wire technology is a major advancement in modern aircraft design.

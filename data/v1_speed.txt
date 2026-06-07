@@ -1,0 +1,15 @@
+Definition:
+V1 is the takeoff decision speed.
+
+How It Works:
+Before reaching V1, a pilot can generally reject the takeoff if a serious issue occurs. After V1, the takeoff should usually continue because insufficient runway may remain for a safe stop.
+
+Factors Affecting V1:
+- Aircraft weight
+- Runway length
+- Weather conditions
+- Aircraft performance
+- Runway surface conditions
+
+Importance:
+V1 is one of the most critical speeds in aviation and is essential for safe takeoff operations.

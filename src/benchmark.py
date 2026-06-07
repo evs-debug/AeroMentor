@@ -1,5 +1,4 @@
 import pickle
-import subprocess
 
 from sentence_transformers import SentenceTransformer
 from sklearn.metrics.pairwise import cosine_similarity
@@ -15,13 +14,19 @@ with open(
 
     database = pickle.load(file)
 
-print("Chunk knowledge base loaded!")
-while True:
+with open(
+    "tests/tests.txt",
+    "r"
+) as file:
 
-    question = input("\nAsk AeroMentor: ")
+    questions = file.readlines()
 
-    if question.lower() == "exit":
-        break
+for question in questions:
+
+    question = question.strip()
+
+    if not question:
+        continue
 
     question_embedding = model.encode([question])
 
@@ -57,80 +62,29 @@ while True:
             similarity += 0.20
 
         if "b787" in question_lower and "b787" in filename_lower:
-            similarity += 0.20
-
-        
+            similarity += 0.20 
 
         scores.append(
             (
                 chunk["filename"],
-                chunk["chunk_number"],
-                similarity,
-                chunk["text"]
+                similarity
             )
         )
+
     scores.sort(
-        key=lambda x: x[2],
+        key=lambda x: x[1],
         reverse=True
     )
 
-    top_chunks = scores[:5]
+    print("\n" + "=" * 50)
+    print("QUESTION:")
+    print(question)
 
-    context = ""
+    print("\nTOP 3 SOURCES:")
 
-    for filename, chunk_number, score, text in top_chunks:
-
-        context += (
-            f"\n\nSource: {filename}"
-            f" | Chunk: {chunk_number}\n"
-        )
-
-        context += text
-    prompt = f"""
-You are AeroMentor, an expert aviation instructor.
-
-Use ONLY the aviation context provided.
-
-Context:
-{context}
-
-Question:
-{question}
-"""
-
-    result = subprocess.run(
-        ["ollama", "run", "llama3", prompt],
-        capture_output=True,
-        text=True
-    )
-
-    print("\nTop Chunks:\n")
-
-    for filename, chunk_number, score, text in top_chunks:
+    for filename, score in scores[:3]:
 
         print(
             f"{filename}"
-            f" | Chunk {chunk_number}"
-            f" | Score: {score:.4f}"
+            f" ({score:.4f})"
         )
-
-    print("\nAeroMentor:")
-    print(result.stdout)
-
-
-    print("\nSources:")
-
-    shown = set()
-
-    for filename, chunk_number, score, text in top_chunks:
-
-        source = (
-            f"{filename}"
-            f" | Chunk {chunk_number}"
-        )
-
-        if source not in shown:
-
-            print(source)
-
-            shown.add(source)

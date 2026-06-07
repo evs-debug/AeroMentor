@@ -1,11 +1,18 @@
 Definition:
-GPS navigation uses satellite signals to determine aircraft position.
+GPS navigation uses satellite signals to determine an aircraft's position and assist navigation.
 
-Key Facts:
-- Provides highly accurate positioning.
-- Supports modern RNAV procedures.
-- Reduces reliance on ground-based navigation aids.
-- Used by both commercial and general aviation aircraft.
+How It Works:
+Aircraft receivers calculate location using signals transmitted from multiple satellites.
+
+Advantages:
+- High navigation accuracy.
+- Global coverage.
+- Reduced dependence on ground-based navigation aids.
+
+Applications:
+- En-route navigation.
+- Area navigation (RNAV).
+- Instrument approaches.
 
 Importance:
-GPS transformed aviation navigation and enabled more efficient flight routing.
+GPS has become a primary navigation method in modern aviation.

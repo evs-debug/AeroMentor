@@ -1,7 +1,20 @@
+Definition:
 The Airbus A320 is a narrow-body commercial airliner designed for short- and medium-haul routes.
 
-It is one of the most successful commercial aircraft ever produced and is widely used by airlines around the world.
+Specifications:
+The aircraft is part of the Airbus A320 family and features advanced fly-by-wire flight controls.
 
-The aircraft typically seats between 140 and 180 passengers depending on configuration. It features a fly-by-wire flight control system, which replaces many traditional mechanical controls with electronic systems.
+Passenger Capacity:
+Most configurations accommodate between 140 and 180 passengers.
 
-The A320 family is known for its fuel efficiency, reliability, and popularity among airlines.
+Range:
+The A320 is designed for regional and medium-range operations.
+
+Engines:
+The aircraft may be powered by CFM International or Pratt & Whitney engines depending on variant.
+
+Fuel Efficiency:
+Modern engines and aerodynamic improvements contribute to low operating costs.
+
+Importance:
+The A320 is one of the most successful and widely used commercial aircraft in aviation history.

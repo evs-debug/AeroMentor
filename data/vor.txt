@@ -1,11 +1,17 @@
 Definition:
-VOR stands for VHF Omnidirectional Range and is a radio navigation system used by aircraft.
+VOR (VHF Omnidirectional Range) is a ground-based radio navigation system used by aircraft.
 
-Key Facts:
-- Provides bearing information.
-- Allows pilots to determine position relative to a station.
-- Widely used in traditional navigation.
-- Often combined with DME equipment.
+How It Works:
+A VOR station transmits signals that allow aircraft to determine their bearing relative to the station.
+
+Advantages:
+- Reliable navigation aid.
+- Widely available.
+- Easy to use.
+
+Limitations:
+- Requires line-of-sight reception.
+- Coverage decreases with distance and terrain obstruction.
 
 Importance:
-VOR systems have been a foundation of aviation navigation for decades.
+VOR has been a cornerstone of aviation navigation for decades.

@@ -1,11 +1,20 @@
 Definition:
-The Airbus A380 is a double-deck wide-body airliner developed by Airbus.
+The Airbus A380 is a double-deck wide-body airliner designed for high-capacity long-haul routes.
 
-Key Facts:
-- Largest passenger airliner ever built.
-- Can carry over 500 passengers in typical configurations.
-- Designed for high-capacity routes between major airports.
-- Powered by four turbofan engines.
+Specifications:
+The aircraft is the world's largest passenger airliner.
+
+Passenger Capacity:
+Depending on configuration, it can accommodate more than 500 passengers.
+
+Range:
+The aircraft is capable of operating ultra-long-haul international routes.
+
+Engines:
+The A380 uses Rolls-Royce Trent 900 or Engine Alliance GP7200 engines.
+
+Fuel Efficiency:
+Despite its size, advanced aerodynamics and efficient engines improve operating efficiency.
 
 Importance:
-The A380 demonstrated Airbus' capability to compete in the ultra-large aircraft market and became an icon of modern aviation.
+The A380 remains one of the most recognizable and technologically advanced passenger aircraft ever built.

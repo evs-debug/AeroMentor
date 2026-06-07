@@ -1,11 +1,17 @@
 Definition:
-The Boeing 747 is a wide-body airliner known for its distinctive upper deck and large passenger capacity.
+The Boeing 747 is a wide-body four-engine airliner known for its distinctive upper-deck hump.
 
-Key Facts:
-- Nicknamed the "Queen of the Skies."
-- First entered service in 1970.
-- Was the world's largest passenger aircraft for decades.
-- Available in passenger and cargo variants.
+Specifications:
+The aircraft was one of the first jumbo jets and revolutionized long-distance air travel.
+
+Passenger Capacity:
+Many configurations carry between 400 and 600 passengers.
+
+Range:
+Modern variants are capable of long-haul and intercontinental operations.
+
+Engines:
+The aircraft uses four high-bypass turbofan engines.
 
 Importance:
-The Boeing 747 revolutionized long-distance air travel by making international flights accessible to more passengers.
+The Boeing 747 transformed global aviation and became one of the most iconic aircraft in history.

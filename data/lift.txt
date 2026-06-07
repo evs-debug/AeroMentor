@@ -1,7 +1,14 @@
-Lift is one of the four forces of flight.
+Definition:
+Lift is one of the four fundamental forces of flight.
 
-Lift is generated when air flows around a wing and creates a pressure difference.
+How It Works:
+Lift is generated when air flows around a wing and creates a pressure difference between the upper and lower surfaces. The lower pressure above the wing and higher pressure below the wing create an upward force.
 
-The pressure above the wing is generally lower than below the wing, producing an upward force.
+Key Facts:
+- Lift acts perpendicular to the relative airflow.
+- Lift increases with airspeed.
+- Wing shape influences lift production.
+- Angle of attack affects lift generation.
 
-Lift must overcome weight for an aircraft to become airborne.
+Importance:
+Lift must overcome weight for an aircraft to become airborne and remain in flight.

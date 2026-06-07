@@ -1,11 +1,13 @@
 Definition:
-A holding pattern is a racetrack-shaped flight path used to delay aircraft while maintaining separation.
+A holding pattern is a predetermined flight path used when an aircraft must delay its arrival.
 
-Key Facts:
-- Used during traffic congestion or weather delays.
-- Flown around a navigation fix.
-- Consists of inbound and outbound legs.
-- Requires precise timing and navigation.
+How It Works:
+Aircraft fly a racetrack-shaped pattern around a designated fix while awaiting further clearance.
+
+Reasons:
+- Traffic congestion.
+- Weather delays.
+- Airport restrictions.
 
 Importance:
-Holding patterns help ATC manage traffic safely and efficiently.
+Holding patterns help maintain safe and orderly air traffic flow.

@@ -1,11 +1,15 @@
 Definition:
-Taxiways are designated paths that aircraft use to move between runways, terminals, and parking areas.
+Taxiways are designated paths used by aircraft to move between runways, terminals, and parking areas.
+
+Functions:
+- Connect airport facilities
+- Reduce runway congestion
+- Improve airport efficiency
 
 Key Facts:
-- Identified by letters.
-- Reduce runway congestion.
-- Include holding points and intersections.
-- Used during taxi operations.
+- Identified by letters
+- Marked with yellow centerlines
+- Designed for safe ground movement
 
 Importance:
-Taxiways improve airport efficiency and ground safety.
+Taxiways enable safe and efficient aircraft movement on the airport surface.

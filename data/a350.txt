@@ -1,7 +1,20 @@
-The Airbus A350 is a long-range wide-body airliner.
+Definition:
+The Airbus A350 is a long-range wide-body commercial airliner designed for medium- and long-haul operations.
 
-It is primarily constructed using composite materials.
+Specifications:
+The A350 family includes the A350-900 and A350-1000 variants. It is designed for efficient long-distance travel.
 
-The A350 commonly uses Rolls-Royce Trent XWB engines.
+Passenger Capacity:
+Depending on configuration, the aircraft typically accommodates between 300 and 410 passengers.
 
-It is designed for fuel efficiency and long-haul operations.
+Range:
+The A350 can operate routes exceeding 15,000 kilometers depending on variant.
+
+Engines:
+The aircraft is powered by Rolls-Royce Trent XWB turbofan engines.
+
+Fuel Efficiency:
+Extensive use of composite materials and advanced aerodynamics improve fuel efficiency and reduce operating costs.
+
+Importance:
+The Airbus A350 is one of the most advanced and fuel-efficient long-haul airliners in service today.

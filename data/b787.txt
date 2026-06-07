@@ -1,7 +1,26 @@
-The Boeing 787 Dreamliner is a long-range wide-body airliner designed for medium- and long-haul operations.
+Definition:
+The Boeing 787 Dreamliner is a long-range wide-body commercial airliner designed for medium- and long-haul operations.
 
-The aircraft makes extensive use of composite materials, reducing weight and improving fuel efficiency.
+Specifications:
+The aircraft is available in three variants: 787-8, 787-9, and 787-10. It typically cruises at approximately Mach 0.85 and is designed for efficient long-distance travel.
 
-The 787 is available in several variants, including the 787-8, 787-9, and 787-10. It is commonly powered by either General Electric GEnx engines or Rolls-Royce Trent 1000 engines.
+Passenger Capacity:
+Depending on the variant and airline configuration, the Boeing 787 can typically accommodate between 242 and 336 passengers.
 
-The aircraft is known for improved passenger comfort, fuel efficiency, and long-range capabilities.
+Range:
+The aircraft is capable of long-range operations, with some variants exceeding 14,000 kilometers in range.
+
+Engines:
+The Boeing 787 is powered by either General Electric GEnx engines or Rolls-Royce Trent 1000 engines. Both engine families are designed for improved fuel efficiency and reduced emissions.
+
+Fuel Efficiency:
+The aircraft achieves significant fuel savings through advanced aerodynamics, lightweight composite materials, and efficient turbofan engines. These technologies reduce fuel burn compared to older wide-body aircraft.
+
+Composite Materials:
+Approximately half of the aircraft's primary structure is constructed from composite materials. This reduces weight, improves corrosion resistance, and lowers maintenance requirements.
+
+Passenger Comfort:
+The 787 is known for larger windows, improved cabin humidity, lower cabin altitude, and enhanced passenger comfort on long flights.
+
+Importance:
+The Boeing 787 introduced a new generation of fuel-efficient long-haul aircraft and has become one of the most successful modern wide-body airliners.

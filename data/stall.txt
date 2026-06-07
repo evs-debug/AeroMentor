@@ -1,7 +1,17 @@
-An aerodynamic stall occurs when the wing exceeds its critical angle of attack.
+Definition:
+An aerodynamic stall occurs when a wing exceeds its critical angle of attack.
 
-When the angle of attack becomes too high, airflow separates from the upper surface of the wing, causing a significant reduction in lift.
+How It Works:
+When the angle of attack becomes too high, airflow separates from the upper surface of the wing, reducing lift significantly.
 
-A stall can occur at any airspeed if the critical angle of attack is exceeded. Common causes include excessive pitch-up maneuvers, low-speed flight, and improper aircraft handling.
+Common Causes:
+- Excessive pitch-up maneuvers.
+- Low-speed flight.
+- Improper aircraft handling.
+- Abrupt control inputs.
 
-Pilots recover from stalls by reducing the angle of attack and increasing airflow over the wings. Stall training is an important part of pilot education.
+Recovery:
+Pilots recover from stalls by reducing the angle of attack and increasing airflow over the wings.
+
+Importance:
+Stall recognition and recovery are essential pilot skills and are a major part of flight training.

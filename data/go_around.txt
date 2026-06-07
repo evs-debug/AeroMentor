@@ -1,11 +1,16 @@
 Definition:
-A go-around is a maneuver in which a pilot discontinues a landing approach and climbs away for another attempt.
+A go-around is a maneuver where a pilot aborts a landing attempt and climbs away for another approach.
 
-Key Facts:
-- Executed when a landing becomes unsafe.
-- May be caused by unstable approaches or runway incursions.
-- Requires application of power and climb procedures.
-- Considered a normal safety maneuver.
+Common Reasons:
+- Unstable approach.
+- Runway obstruction.
+- Poor visibility.
+- ATC instruction.
+
+Procedure:
+- Apply go-around power.
+- Establish a positive climb.
+- Follow published procedures.
 
 Importance:
-Go-arounds prevent unsafe landings and improve flight safety.
+Go-arounds improve safety by preventing unsafe landings.

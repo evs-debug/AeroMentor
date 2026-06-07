@@ -1,11 +1,13 @@
 Definition:
-A turbojet is a jet engine that generates thrust primarily from exhaust gases.
+A turbojet is one of the earliest jet engine designs.
+
+How It Works:
+Air passes through the engine core where it is compressed, mixed with fuel, combusted, and expelled through the exhaust.
 
 Key Facts:
-- Simpler than a turbofan.
+- Produces high-speed exhaust.
 - Efficient at high speeds.
-- Produces higher noise levels.
-- Used on some military aircraft.
+- Louder and less fuel-efficient than turbofans.
 
 Importance:
-Turbojets played a major role in the early development of jet aviation.
+Turbojets played a major role in the development of modern jet aviation.

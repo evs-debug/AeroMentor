@@ -1,11 +1,16 @@
 Definition:
-A runway is a prepared surface used by aircraft for takeoff and landing.
+A runway is a designated surface used for aircraft takeoff and landing.
 
-Key Facts:
-- Identified by numbers representing magnetic heading.
-- May be paved or unpaved.
-- Length varies according to aircraft requirements.
-- Equipped with markings and lighting systems.
+Characteristics:
+- Identified by magnetic heading numbers
+- Can be asphalt, concrete, or grass
+- Designed for specific aircraft operations
+
+Key Factors:
+- Length
+- Width
+- Surface condition
+- Lighting systems
 
 Importance:
-Runways are the primary infrastructure enabling aircraft operations.
+Runways provide the primary operating surface for aircraft arrivals and departures.
