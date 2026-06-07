@@ -89,3 +89,23 @@ Question:
 
     print("\nAeroMentor:")
     print(result.stdout)
+
+    print("\nAeroMentor:")
+    print(result.stdout)
+
+    print("\nSources:")
+
+    shown = set()
+
+    for filename, chunk_number, score, text in top_chunks:
+
+        source = (
+            f"{filename}"
+            f" | Chunk {chunk_number}"
+        )
+
+        if source not in shown:
+
+            print(source)
+
+            shown.add(source)
