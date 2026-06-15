@@ -34,9 +34,25 @@ def load_database():
 model = load_model()
 database = load_database()
 
+if "history" not in st.session_state:
+
+    st.session_state.history = []
+
 question = st.text_input(
     "Ask an aviation question:"
 )
+
+for user_question, assistant_answer in st.session_state.history:
+
+    st.markdown(
+        f"**You:** {user_question}"
+    )
+
+    st.markdown(
+        f"**AeroMentor:** {assistant_answer}"
+    )
+
+    st.divider()
 
 if st.button("Ask") and question:
 
@@ -100,6 +116,18 @@ if st.button("Ask") and question:
         )
 
         context += text
+    
+    history_text = ""
+
+    for (
+        user_question,
+        assistant_answer
+    ) in st.session_state.history[-3:]:
+
+        history_text += (
+            f"\nUser: {user_question}\n"
+            f"Assistant: {assistant_answer}\n"
+        )
 
     prompt = f"""
 You are AeroMentor, an aviation instructor.
@@ -111,9 +139,8 @@ say:
 
 "I do not have enough information in my knowledge base."
 
-Do not add unrelated aviation facts.
-Do not introduce new topics.
-Keep answers focused on the user's question.
+Previous Conversation:
+{history_text}
 
 Context:
 {context}
@@ -121,6 +148,8 @@ Context:
 Question:
 {question}
 """
+
+
 
     with st.spinner(
         "AeroMentor is thinking..."
@@ -142,6 +171,13 @@ Question:
     )
 
     st.write(clean_output)
+
+    st.session_state.history.append(
+        (
+            question,
+            clean_output
+        )
+    )
 
     st.subheader("Sources")
 
