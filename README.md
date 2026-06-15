@@ -1,21 +1,42 @@
-AeroMentor
+# AeroMentor
 
 AeroMentor is an aviation-focused AI assistant built using Retrieval-Augmented Generation (RAG), semantic search, embeddings, and a local Llama 3 model.
 
 The system retrieves relevant aviation knowledge from a custom aviation knowledge base and generates source-backed answers through a Streamlit web interface.
 
-Features
-Semantic search using sentence embeddings
-Chunk-based retrieval system
-Retrieval-Augmented Generation (RAG)
-Local Llama 3 inference through Ollama
-Streamlit web application
-Source citations for transparency
-Benchmarking and retrieval evaluation
-Aircraft-aware retrieval optimization
-Architecture
+---
 
-AeroMentor follows a Retrieval-Augmented Generation pipeline:
+## Features
+
+* Semantic search using sentence embeddings
+* Chunk-based retrieval system
+* Retrieval-Augmented Generation (RAG)
+* Local Llama 3 inference through Ollama
+* Streamlit web application
+* Source-backed answers with citations
+* Benchmarking and retrieval evaluation
+* Aircraft-aware retrieval optimization
+
+---
+
+## Screenshots
+
+### Home Screen
+
+![Home Screen](docs/aeromentor-home.png)
+
+### Example Question
+
+![V1 Example](docs/aeromentor-v1.png)
+
+### Boeing 787 Example
+
+![B787 Example](docs/aeromentor-b787.png)
+---
+
+## Architecture
+
+AeroMentor follows a Retrieval-Augmented Generation (RAG) pipeline:
 
 User Question
 ↓
@@ -39,57 +60,88 @@ Source Citations
 ↓
 Streamlit UI
 
-Knowledge Base
+See the architecture diagram in:
 
-Current knowledge base contains:
+`docs/architecture.png`
 
-Aircraft types
-Aerodynamics
-Navigation systems
-Flight operations
-Engine systems
-Airport operations
-Aviation procedures
+---
 
-Total knowledge chunks: 167
+## Knowledge Base
 
-Technologies Used
-Python
-Ollama
-Llama 3
-Sentence Transformers
-Streamlit
-Scikit-Learn
-Git
-GitHub
-Installation
+Current knowledge base includes:
+
+* Aircraft types
+* Aerodynamics
+* Flight operations
+* Navigation systems
+* Engine systems
+* Airport operations
+* Aviation procedures
+
+**Total aviation knowledge chunks:** 167
+
+---
+
+## Technologies Used
+
+* Python
+* Ollama
+* Llama 3
+* Sentence Transformers
+* Streamlit
+* Scikit-Learn
+* Git
+* GitHub
+
+---
+
+## Installation
 
 Clone the repository:
 
+```bash
 git clone https://github.com/evs-debug/AeroMentor.git
 cd AeroMentor
+```
 
-Create a virtual environment:
+Create and activate a virtual environment:
 
+```bash
 python -m venv venv
 source venv/bin/activate
+```
 
 Install dependencies:
 
+```bash
 pip install -r requirements.txt
-Running AeroMentor
+```
 
-Start the Streamlit application:
+---
 
+## Running AeroMentor
+
+Launch the Streamlit application:
+
+```bash
 python -m streamlit run app.py
-Future Improvements
-Conversation memory
-Chat history
-Image understanding
-Aviation diagram analysis
-FAISS vector database
-Expanded aviation knowledge base
-Author
+```
+
+---
+
+## Future Improvements
+
+* Conversation memory
+* Chat history
+* Follow-up question support
+* Image understanding
+* Aviation diagram analysis
+* FAISS vector database
+* Expanded aviation knowledge base
+
+---
+
+## Author
 
 Eva Sharma
 
