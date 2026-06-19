@@ -49,7 +49,7 @@ if "history" not in st.session_state:
 
     st.session_state.history = []
 
-question = st.text_input(
+question = st.chat_input(
     "Ask an aviation question:"
 )
 
@@ -62,8 +62,8 @@ for user_question, assistant_answer in st.session_state.history:
         st.write(assistant_answer)
 
 
-if st.button("Ask") and question:
-    
+if question:
+
     with st.chat_message("user"):
         st.write(question)
 
@@ -79,11 +79,32 @@ if st.button("Ask") and question:
             f"Assistant: {assistant_answer}\n"
         )
 
-    search_query = (
-        history_text +
-        "\nCurrent Question: " +
-        question
+    follow_up_words = [
+        "it",
+        "its",
+        "they",
+        "them",
+        "that",
+        "those",
+        "these"
+    ]
+
+    question_lower = question.lower()
+
+
+    is_follow_up = any(
+        word in question_lower.split()
+        for word in follow_up_words
     )
+
+    if is_follow_up:
+        search_query = (
+            history_text +
+            "\nCurrent Question: " +
+            question
+        )
+    else:
+        search_query = question
 
     question_embedding = model.encode(
         [search_query]
@@ -115,10 +136,9 @@ if st.button("Ask") and question:
         for plane in aircraft:
 
             if (
-                plane in question_lower
-                or plane in history_lower
-            ) and plane in filename_lower:
-
+                plane in search_query.lower()
+                and plane in filename_lower
+            ):
                 similarity += 0.20
 
 
@@ -137,7 +157,7 @@ if st.button("Ask") and question:
         reverse=True
     )
 
-    top_chunks = scores[:8]
+    top_chunks = scores[:5]
 
 
 
@@ -173,6 +193,8 @@ Context:
 
 Question:
 {question}
+
+Answer:
 """
 
 
@@ -205,27 +227,27 @@ Question:
         )
     )
 
-    st.subheader("Sources")
+    with st.expander("📚 Sources"):
 
-    shown_sources = set()
+        shown_sources = set()
 
-    for (
-        filename,
-        chunk_number,
-        score,
-        text
-    ) in top_chunks:
+        for (
+            filename,
+            chunk_number,
+            score,
+            text
+        ) in top_chunks:
 
-        source = (
-            f"{filename}"
-            f" | Chunk {chunk_number}"
-        )
+            source = (
+                f"{filename}"
+                f" | Chunk {chunk_number}"
+            )
 
-        if (
-            score >= 0.60
-            and source not in shown_sources
-        ):
+            if (
+                score >= 0.60
+                and source not in shown_sources
+            ):
 
-            shown_sources.add(source)
+                shown_sources.add(source)
 
-            st.write(source)
+                st.write(source)
