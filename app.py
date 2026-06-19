@@ -15,6 +15,17 @@ st.set_page_config(
 st.title("✈️ AeroMentor")
 st.write("Your Aviation AI Instructor")
 
+with st.sidebar:
+
+    st.header("⚙️ Settings")
+
+    if st.button("🗑️ Clear Chat"):
+
+        st.session_state.history = []
+
+        st.rerun()
+
+
 @st.cache_resource
 def load_model():
     return SentenceTransformer(
@@ -44,17 +55,17 @@ question = st.text_input(
 
 for user_question, assistant_answer in st.session_state.history:
 
-    st.markdown(
-        f"**You:** {user_question}"
-    )
+    with st.chat_message("user"):
+        st.write(user_question)
 
-    st.markdown(
-        f"**AeroMentor:** {assistant_answer}"
-    )
+    with st.chat_message("assistant"):
+        st.write(assistant_answer)
 
-    st.divider()
 
 if st.button("Ask") and question:
+    
+    with st.chat_message("user"):
+        st.write(question)
 
     history_text = ""
 
@@ -128,22 +139,7 @@ if st.button("Ask") and question:
 
     top_chunks = scores[:8]
 
-    for filename, chunk_number, score, text in top_chunks:
 
-        print("\n================")
-        print(filename)
-        print(f"Chunk {chunk_number}")
-        print(text[:300])
-
-    print("\nTOP CHUNKS:")
-
-    for filename, chunk_number, score, text in top_chunks:
-
-        print(
-            f"{filename}"
-            f" | Chunk {chunk_number}"
-            f" | {score:.4f}"
-        )
 
     context = ""
 
@@ -155,9 +151,6 @@ if st.button("Ask") and question:
         )
 
         context += text
-    print("\n===== CONTEXT =====")
-    print(context)
-    print("===================\n")
 
 
     prompt = f"""
@@ -194,7 +187,6 @@ Question:
             text=True
         )
 
-    st.subheader("Answer")
 
 
     clean_output = re.sub(
@@ -203,7 +195,8 @@ Question:
         result.stdout
     )
 
-    st.write(clean_output)
+    with st.chat_message("assistant"):
+        st.write(clean_output)
 
     st.session_state.history.append(
         (
@@ -214,8 +207,7 @@ Question:
 
     st.subheader("Sources")
 
-
-    unique_sources = set()
+    shown_sources = set()
 
     for (
         filename,
@@ -224,9 +216,16 @@ Question:
         text
     ) in top_chunks:
 
-        if score >= 0.65:
-            unique_sources.add(filename)
+        source = (
+            f"{filename}"
+            f" | Chunk {chunk_number}"
+        )
 
-    for source in unique_sources:
+        if (
+            score >= 0.60
+            and source not in shown_sources
+        ):
 
-        st.write(source)
+            shown_sources.add(source)
+
+            st.write(source)
