@@ -56,8 +56,26 @@ for user_question, assistant_answer in st.session_state.history:
 
 if st.button("Ask") and question:
 
+    history_text = ""
+
+    for (
+        user_question,
+        assistant_answer
+    ) in st.session_state.history[-3:]:
+
+        history_text += (
+            f"\nUser: {user_question}\n"
+            f"Assistant: {assistant_answer}\n"
+        )
+
+    search_query = (
+        history_text +
+        "\nCurrent Question: " +
+        question
+    )
+
     question_embedding = model.encode(
-        [question]
+        [search_query]
     )
 
     scores = []
@@ -80,15 +98,19 @@ if st.button("Ask") and question:
         )[0][0]
 
         question_lower = question.lower()
+        history_lower = history_text.lower()
         filename_lower = chunk["filename"].lower()
 
         for plane in aircraft:
 
             if (
                 plane in question_lower
-                and plane in filename_lower
-            ):
+                or plane in history_lower
+            ) and plane in filename_lower:
+
                 similarity += 0.20
+
+
 
         scores.append(
             (
@@ -104,7 +126,24 @@ if st.button("Ask") and question:
         reverse=True
     )
 
-    top_chunks = scores[:5]
+    top_chunks = scores[:8]
+
+    for filename, chunk_number, score, text in top_chunks:
+
+        print("\n================")
+        print(filename)
+        print(f"Chunk {chunk_number}")
+        print(text[:300])
+
+    print("\nTOP CHUNKS:")
+
+    for filename, chunk_number, score, text in top_chunks:
+
+        print(
+            f"{filename}"
+            f" | Chunk {chunk_number}"
+            f" | {score:.4f}"
+        )
 
     context = ""
 
@@ -116,27 +155,21 @@ if st.button("Ask") and question:
         )
 
         context += text
-    
-    history_text = ""
+    print("\n===== CONTEXT =====")
+    print(context)
+    print("===================\n")
 
-    for (
-        user_question,
-        assistant_answer
-    ) in st.session_state.history[-3:]:
-
-        history_text += (
-            f"\nUser: {user_question}\n"
-            f"Assistant: {assistant_answer}\n"
-        )
 
     prompt = f"""
 You are AeroMentor, an aviation instructor.
 
 Answer ONLY using the provided context.
 
-If the answer is not contained in the context,
-say:
+If the answer is present in the context,
+answer using only that information.
 
+If the answer truly cannot be found,
+say:
 "I do not have enough information in my knowledge base."
 
 Previous Conversation:
@@ -181,6 +214,7 @@ Question:
 
     st.subheader("Sources")
 
+
     unique_sources = set()
 
     for (
@@ -190,7 +224,8 @@ Question:
         text
     ) in top_chunks:
 
-        unique_sources.add(filename)
+        if score >= 0.65:
+            unique_sources.add(filename)
 
     for source in unique_sources:
 
