@@ -8,14 +8,15 @@ The system retrieves relevant aviation knowledge from a custom aviation knowledg
 
 ## Features
 
-* Semantic search using sentence embeddings
-* Chunk-based retrieval system
-* Retrieval-Augmented Generation (RAG)
-* Local Llama 3 inference through Ollama
-* Streamlit web application
-* Source-backed answers with citations
-* Benchmarking and retrieval evaluation
-* Aircraft-aware retrieval optimization
+Semantic search using sentence embeddings
+FAISS vector database for efficient retrieval
+Retrieval-Augmented Generation (RAG)
+Local Llama 3 inference through Ollama
+Conversational Streamlit chat interface
+Chat history and session management
+Follow-up question support with context-aware retrieval
+Aircraft-aware reranking system
+Source-backed answers with citations
 
 ---
 
@@ -40,15 +41,19 @@ AeroMentor follows a Retrieval-Augmented Generation (RAG) pipeline:
 
 User Question
 ↓
+Conversational Context
+↓
+Entity Tracking
+↓
 Embedding Model (all-MiniLM-L6-v2)
 ↓
 Question Embedding
 ↓
-Cosine Similarity Search
+FAISS Vector Search
 ↓
-Aviation Knowledge Base (167 Chunks)
+Aircraft-Aware Reranking
 ↓
-Top 5 Relevant Chunks
+Top Relevant Chunks
 ↓
 Context Assembly
 ↓
@@ -58,7 +63,7 @@ Answer Generation
 ↓
 Source Citations
 ↓
-Streamlit UI
+Streamlit Chat Interface
 
 See the architecture diagram in:
 
@@ -129,20 +134,49 @@ python -m streamlit run app.py
 
 ---
 
+### Conversational Memory and Context-Aware Retrieval
+
+AeroMentor supports follow-up questions by tracking aircraft entities mentioned in previous user queries. When a user asks a context-dependent question such as "What engines does it use?", the system automatically identifies the referenced aircraft and reformulates the retrieval query before performing semantic search.
+
+Example:
+
+User: What is the A350?
+User: What engines does it use?
+
+Retrieval Query:
+A350 What engines does it use?
+
+This enables more accurate retrieval of relevant knowledge chunks and creates a more natural conversational experience.
+
+
 ## Future Improvements
 
-* Conversation memory
-* Chat history
-* Follow-up question support
-* Image understanding
-* Aviation diagram analysis
-* FAISS vector database
-* Expanded aviation knowledge base
+
+PDF knowledge ingestion
+Image understanding
+Aviation diagram analysis
+Expanded aviation knowledge base
+Advanced evaluation benchmarks
+Cloud deployment
 
 ---
+
+## Project Structure
+
+aviation-ai/
+├── app.py
+├── aviation_chunk_index.pkl
+├── aviation_faiss.index
+├── data/
+├── docs/
+├── src/
+├── tests/
+└── README.md
 
 ## Author
 
 Eva Sharma
 
 AI & Software Development Portfolio Project
+
+

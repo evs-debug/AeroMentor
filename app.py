@@ -1,11 +1,12 @@
 import pickle
 import subprocess
 import re
+import faiss
+import numpy as np
 
 import streamlit as st
 
 from sentence_transformers import SentenceTransformer
-from sklearn.metrics.pairwise import cosine_similarity
 
 st.set_page_config(
     page_title="AeroMentor",
@@ -44,6 +45,15 @@ def load_database():
 
 model = load_model()
 database = load_database()
+
+@st.cache_resource
+def load_faiss_index():
+
+    return faiss.read_index(
+        "aviation_faiss.index"
+    )
+
+index = load_faiss_index()
 
 if "history" not in st.session_state:
 
@@ -91,27 +101,6 @@ if question:
 
     question_lower = question.lower()
 
-
-    is_follow_up = any(
-        word in question_lower.split()
-        for word in follow_up_words
-    )
-
-    if is_follow_up:
-        search_query = (
-            history_text +
-            "\nCurrent Question: " +
-            question
-        )
-    else:
-        search_query = question
-
-    question_embedding = model.encode(
-        [search_query]
-    )
-
-    scores = []
-
     aircraft = [
         "a320",
         "a350",
@@ -122,15 +111,60 @@ if question:
         "b787"
     ]
 
-    for chunk in database:
 
-        similarity = cosine_similarity(
-            question_embedding,
-            [chunk["embedding"]]
-        )[0][0]
+    is_follow_up = any(
+        word in question_lower.split()
+        for word in follow_up_words
+    )
 
-        question_lower = question.lower()
-        history_lower = history_text.lower()
+
+    last_aircraft = ""
+
+    for plane in aircraft:
+        if plane in history_text.lower():
+            last_aircraft = plane.upper()
+
+    if is_follow_up and last_aircraft:
+
+        search_query = (
+            f"{last_aircraft} {question}"
+        )
+
+    else:
+        search_query = question
+
+
+
+    question_embedding = model.encode(
+        [search_query]
+    ).astype("float32")
+
+   
+
+
+
+    distances, indices = index.search(
+        question_embedding,
+        8
+    )
+
+    print("\nFAISS RESULTS:")
+
+    for i in indices[0]:
+        chunk = database[i]
+        print(
+            f"{chunk['filename']}"
+            f" | Chunk {chunk['chunk_number']}"
+        )
+
+    scores = []
+
+    for i in indices[0]:
+
+        chunk = database[i]
+
+        similarity = 1.0
+
         filename_lower = chunk["filename"].lower()
 
         for plane in aircraft:
@@ -140,8 +174,6 @@ if question:
                 and plane in filename_lower
             ):
                 similarity += 0.20
-
-
 
         scores.append(
             (
@@ -158,6 +190,8 @@ if question:
     )
 
     top_chunks = scores[:5]
+
+    
 
 
 
