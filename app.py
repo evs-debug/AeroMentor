@@ -45,6 +45,13 @@ def load_database():
 
 model = load_model()
 database = load_database()
+for chunk in database:
+    if chunk["filename"] == "a350.txt":
+        print(
+            f"Chunk {chunk['chunk_number']}"
+        )
+        print(chunk["text"])
+        print("----------------") 
 
 @st.cache_resource
 def load_faiss_index():
@@ -145,7 +152,7 @@ if question:
 
     distances, indices = index.search(
         question_embedding,
-        8
+        50
     )
 
     print("\nFAISS RESULTS:")
@@ -164,6 +171,10 @@ if question:
         chunk = database[i]
 
         similarity = 1.0
+
+        if "engine" in question_lower:
+            if "engine" in chunk["text"].lower():
+                similarity += 0.50
 
         filename_lower = chunk["filename"].lower()
 
@@ -189,9 +200,17 @@ if question:
         reverse=True
     )
 
-    top_chunks = scores[:5]
+    top_chunks = scores[:8]
 
-    
+    print("\nTOP CHUNKS:")
+
+    for filename, chunk_number, score, text in top_chunks:
+        print(
+            f"{filename}"
+            f" | Chunk {chunk_number}"
+        )
+        print(text[:200])
+        print("----------------")
 
 
 
