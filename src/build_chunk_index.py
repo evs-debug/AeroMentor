@@ -19,33 +19,22 @@ for filename in os.listdir("data"):
     with open(path, "r") as file:
         text = file.read()
 
+
     chunks = []
 
-    if (
-        "Definition:" in text
-        and "Key Facts:" in text
-        and "Importance:" in text
+    chunk_size = 500
+
+    for i in range(
+        0,
+        len(text),
+        chunk_size
     ):
+        chunk = text[
+            i:i + chunk_size
+        ].strip()
 
-        sections = text.split("\n\n")
-
-        for section in sections:
-
-            section = section.strip()
-
-            if section:
-                chunks.append(section)
-
-    else:
-
-        sections = text.split("\n\n")
-
-        for section in sections:
-
-            section = section.strip()
-
-            if section:
-                chunks.append(section)
+        if chunk:
+            chunks.append(chunk)
 
     for chunk_number, chunk in enumerate(chunks):
 
@@ -70,3 +59,10 @@ with open(
 print(
     f"Indexed {len(database)} chunks!"
 )
+
+with open(
+    path,
+    "r",
+    encoding="utf-8"
+) as file:
+    text = file.read()
