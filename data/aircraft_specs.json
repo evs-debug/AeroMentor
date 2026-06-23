@@ -1,0 +1,28 @@
+{
+  "a350": {
+    "name": "Airbus A350",
+    "passengers": "300-410",
+    "range": "15,000+ km",
+    "cruise_speed": "Mach 0.85",
+    "engines": "Rolls-Royce Trent XWB",
+    "role": "Long-haul wide-body airliner"
+  },
+
+  "b787": {
+    "name": "Boeing 787 Dreamliner",
+    "passengers": "242-335",
+    "range": "14,000+ km",
+    "cruise_speed": "Mach 0.85",
+    "engines": "GEnx or Rolls-Royce Trent 1000",
+    "role": "Long-haul wide-body airliner"
+  },
+
+  "a320": {
+    "name": "Airbus A320",
+    "passengers": "140-170",
+    "range": "6,300 km",
+    "cruise_speed": "Mach 0.78",
+    "engines": "CFM56 or IAE V2500",
+    "role": "Short-to-medium haul airliner"
+  }
+}

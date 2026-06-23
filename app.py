@@ -3,6 +3,7 @@ import subprocess
 import re
 import faiss
 import numpy as np
+import json
 
 import streamlit as st
 
@@ -45,6 +46,13 @@ def load_database():
 
 model = load_model()
 database = load_database()
+with open(
+    "data/aircraft_specs.json",
+    "r"
+) as file:
+
+    aircraft_specs = json.load(file)
+
 for chunk in database:
     if chunk["filename"] == "a350.txt":
         print(
@@ -107,6 +115,14 @@ if question:
     ]
 
     question_lower = question.lower()
+
+    selected_aircraft = None
+
+    for plane in aircraft_specs:
+
+        if plane in question_lower:
+            selected_aircraft = plane
+            break
 
     aircraft = [
         "a320",
@@ -272,6 +288,44 @@ Answer:
 
     with st.chat_message("assistant"):
         st.write(clean_output)
+
+    if selected_aircraft:
+
+        specs = aircraft_specs[
+            selected_aircraft
+        ]
+
+        st.subheader(
+            f"✈️ {specs['name']}"
+        )
+
+        col1, col2 = st.columns(2)
+
+        with col1:
+            st.metric(
+                "Passengers",
+                specs["passengers"]
+            )
+
+            st.metric(
+                "Range",
+                specs["range"]
+            )
+
+        with col2:
+            st.metric(
+                "Cruise Speed",
+                specs["cruise_speed"]
+            )
+
+            st.metric(
+                "Engines",
+                specs["engines"]
+            )
+
+        st.caption(
+            specs["role"]
+        )
 
     st.session_state.history.append(
         (
