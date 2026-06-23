@@ -6,9 +6,11 @@ import numpy as np
 import json
 import time
 
+
 import streamlit as st
 
 from sentence_transformers import SentenceTransformer
+from pypdf import PdfReader
 
 st.set_page_config(
     page_title="AeroMentor",
@@ -27,6 +29,20 @@ with st.sidebar:
         st.session_state.history = []
 
         st.rerun()
+
+    st.divider()
+
+    uploaded_file = st.file_uploader(
+        "Upload a PDF",
+        type=["pdf"]
+    )
+
+    if uploaded_file:
+
+        st.success(
+            f"Uploaded: {uploaded_file.name}"
+        )
+
 
 
 @st.cache_resource
@@ -70,6 +86,90 @@ def load_faiss_index():
     )
 
 index = load_faiss_index()
+
+uploaded_database = []
+
+if uploaded_file:
+
+    try:
+
+        uploaded_file.seek(0)
+
+        reader = PdfReader(
+            uploaded_file
+        )
+
+    except Exception as e:
+
+        st.error(
+            f"Could not read PDF: {e}"
+        )
+
+        st.stop()
+
+    uploaded_text = ""
+
+    for page in reader.pages:
+
+        page_text = page.extract_text()
+
+        if page_text:
+            uploaded_text += (
+                page_text + "\n"
+            )
+    
+    st.write(
+        f"Pages: {len(reader.pages)}"
+    )
+
+    st.write(
+        f"Characters: {len(uploaded_text)}"
+    )
+
+    uploaded_chunks = []
+
+    chunk_size = 1000
+
+    for i in range(
+        0,
+        len(uploaded_text),
+        chunk_size
+    ):
+
+        chunk = uploaded_text[
+            i:i + chunk_size
+        ].strip()
+
+        if chunk:
+            uploaded_chunks.append(
+                chunk
+            )
+
+    embeddings = model.encode(
+        uploaded_chunks,
+        show_progress_bar=True
+    ).astype("float32")
+
+    for chunk_number, (chunk, embedding) in enumerate(
+        zip(uploaded_chunks, embeddings)
+    ):
+        uploaded_database.append(
+            {
+                "filename": uploaded_file.name,
+                "chunk_number": chunk_number,
+                "text": chunk,
+                "embedding": embedding
+            }
+        )
+
+    st.write(
+        f"Chunks: {len(uploaded_chunks)}"
+    )
+
+    st.write(
+        f"Embeddings: "
+        f"{len(uploaded_database)}"
+    )
 
 if "history" not in st.session_state:
 
@@ -165,6 +265,50 @@ if question:
         [search_query]
     ).astype("float32")
 
+    uploaded_scores = []
+
+    for chunk in uploaded_database:
+
+        embedding = np.array(
+            chunk["embedding"],
+            dtype="float32"
+        )
+
+        similarity = np.dot(
+            question_embedding[0],
+            embedding
+        )
+
+        uploaded_scores.append(
+            (
+                chunk["filename"],
+                chunk["chunk_number"],
+                similarity,
+                chunk["text"]
+            )
+        )
+
+    uploaded_scores.sort(
+        key=lambda x: x[2],
+        reverse=True
+    )
+
+    print("\nUPLOADED PDF SCORES:")
+
+    for (
+        filename,
+        chunk_number,
+        score,
+        text
+    ) in uploaded_scores:
+
+        print(
+            f"{filename}"
+            f" | Chunk {chunk_number}"
+            f" | Score {score}"
+        )
+
+
    
 
 
@@ -189,7 +333,7 @@ if question:
 
         chunk = database[i]
 
-        similarity = 1.0
+        similarity = 0.0
 
         if "engine" in question_lower:
             if "engine" in chunk["text"].lower():
@@ -214,12 +358,32 @@ if question:
             )
         )
 
+        position = list(
+            indices[0]
+        ).index(i)
+
+        similarity = float(
+            distances[0][position]
+        )
+
     scores.sort(
         key=lambda x: x[2],
         reverse=True
     )
 
     top_chunks = scores[:8]
+
+    all_scores = (
+        scores +
+        uploaded_scores
+    )
+
+    all_scores.sort(
+        key=lambda x: x[2],
+        reverse=True
+    )
+
+    top_chunks = all_scores[:8]
 
     source_files = set()
 
