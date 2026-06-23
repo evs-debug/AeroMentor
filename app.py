@@ -4,6 +4,7 @@ import re
 import faiss
 import numpy as np
 import json
+import time
 
 import streamlit as st
 
@@ -91,6 +92,8 @@ if question:
 
     with st.chat_message("user"):
         st.write(question)
+    
+    start_time = time.time()
 
     history_text = ""
 
@@ -218,6 +221,17 @@ if question:
 
     top_chunks = scores[:8]
 
+    source_files = set()
+
+    for (
+        filename,
+        chunk_number,
+        score,
+        text
+    ) in top_chunks:
+
+        source_files.add(filename)
+
     print("\nTOP CHUNKS:")
 
     for filename, chunk_number, score, text in top_chunks:
@@ -286,8 +300,61 @@ Answer:
         result.stdout
     )
 
+    response_time = (
+        time.time()
+        - start_time
+    )
+
     with st.chat_message("assistant"):
         st.write(clean_output)
+
+    with st.expander(
+        "📊 Retrieval Metrics"
+    ):
+
+        col1, col2 = st.columns(2)
+
+        with col1:
+
+            st.metric(
+                "Knowledge Base",
+                f"{len(database)} chunks"
+            )
+
+            st.metric(
+                "Retrieved Chunks",
+                len(top_chunks)
+            )
+
+        with col2:
+
+            st.metric(
+                "Sources Used",
+                len(source_files)
+            )
+
+            st.metric(
+                "Response Time",
+                f"{response_time:.2f}s"
+            )
+        st.divider()
+
+        st.write(
+            "Top Retrieved Chunks"
+        )
+
+        for (
+            filename,
+            chunk_number,
+            score,
+            text
+        ) in top_chunks:
+
+            st.write(
+                f"{filename} | "
+                f"Chunk {chunk_number}"
+            )
+
 
     if selected_aircraft:
 
