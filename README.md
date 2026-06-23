@@ -173,10 +173,47 @@ aviation-ai/
 ├── tests/
 └── README.md
 
+
+
+
+## Features
+
+- Semantic search using sentence embeddings
+- Chunk-based retrieval system
+- Retrieval-Augmented Generation (RAG)
+- Local Llama 3 inference through Ollama
+- Streamlit web application
+- Source-backed answers with citations
+- Aircraft-aware retrieval optimization
+- Conversational memory for follow-up questions
+- Upload PDF and chat with user-provided documents
+
+
+## Upload PDF & Chat With It
+
+Users can upload aviation manuals, lecture notes, or documents and ask questions directly from the uploaded content.
+
+### Example
+
+PDF: Untitled document.pdf
+
+Question:
+What engines does the SkyDragon X1 use?
+
+Answer:
+The SkyDragon X1 aircraft uses Phoenix-900 engines.
+
+## Recent Updates
+
+### Dynamic PDF Ingestion
+- Upload arbitrary PDF documents
+- Extract text using pypdf
+- Generate embeddings on demand
+- Perform semantic retrieval over uploaded documents
+- Answer questions using retrieved document context
+
 ## Author
 
 Eva Sharma
 
 AI & Software Development Portfolio Project
-
-
