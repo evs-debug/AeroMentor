@@ -1,69 +1,76 @@
 # AeroMentor
 
-AeroMentor is an aviation-focused AI assistant built using Retrieval-Augmented Generation (RAG), semantic search, embeddings, and a local Llama 3 model.
+AeroMentor is an aviation-focused AI assistant built using Retrieval-Augmented Generation (RAG), semantic search, FAISS vector search, and a local Llama 3 model.
 
-The system retrieves relevant aviation knowledge from a custom aviation knowledge base and generates source-backed answers through a Streamlit web interface.
+The system retrieves aviation knowledge from a custom knowledge base, supports conversational question answering, and allows users to upload PDF documents and chat with them through a Streamlit web interface.
 
 ---
 
 ## Features
 
-Semantic search using sentence embeddings
-FAISS vector database for efficient retrieval
-Retrieval-Augmented Generation (RAG)
-Local Llama 3 inference through Ollama
-Conversational Streamlit chat interface
-Chat history and session management
-Follow-up question support with context-aware retrieval
-Aircraft-aware reranking system
-Source-backed answers with citations
+- Semantic search using sentence embeddings
+- FAISS vector database for efficient retrieval
+- Retrieval-Augmented Generation (RAG)
+- Local Llama 3 inference through Ollama
+- Conversational Streamlit chat interface
+- Chat history and session management
+- Follow-up question support with context-aware retrieval
+- Aircraft-aware reranking system
+- Aircraft specification cards
+- Retrieval analytics dashboard
+- Upload PDF and chat with user-provided documents
+- Source-backed answers with citations
 
 ---
 
 ## Screenshots
 
 ### Home Screen
+![Home Screen](screenshots/home1.png)
 
-![Home Screen](docs/aeromentor-home.png)
+### Aircraft Specification Cards
+![Aircraft Specs](screenshots/aircraft_specs.png)
 
-### Example Question
+### Retrieval Dashboard
+![Retrieval Dashboard](screenshots/retrieval_metrics.png)
 
-![V1 Example](docs/aeromentor-v1.png)
+### Upload PDF
+![PDF Upload](screenshots/pdf.png)
 
-### Boeing 787 Example
-
-![B787 Example](docs/aeromentor-b787.png)
----
+### Chat With Uploaded PDF
+![PDF Question Answering](screenshots/pdf1.png)
 
 ## Architecture
 
 AeroMentor follows a Retrieval-Augmented Generation (RAG) pipeline:
 
 User Question
-↓
+        ↓
 Conversational Context
-↓
+        ↓
 Entity Tracking
-↓
+        ↓
 Embedding Model (all-MiniLM-L6-v2)
-↓
+        ↓
 Question Embedding
-↓
-FAISS Vector Search
-↓
+        ↓
+FAISS Knowledge Base Search
+              +
+Uploaded PDF Retrieval
+        ↓
 Aircraft-Aware Reranking
-↓
+        ↓
 Top Relevant Chunks
-↓
+        ↓
 Context Assembly
-↓
+        ↓
 Llama 3 (Ollama)
-↓
+        ↓
 Answer Generation
-↓
+        ↓
 Source Citations
-↓
-Streamlit Chat Interface
+        ↓
+Streamlit Interface
 
 See the architecture diagram in:
 
@@ -75,15 +82,17 @@ See the architecture diagram in:
 
 Current knowledge base includes:
 
-* Aircraft types
-* Aerodynamics
-* Flight operations
-* Navigation systems
-* Engine systems
-* Airport operations
-* Aviation procedures
+- Aircraft types
+- Aerodynamics
+- Flight operations
+- Navigation systems
+- Engine systems
+- Airport operations
+- Aviation procedures
+- FAA Pilot's Handbook of Aeronautical Knowledge
+- FAA Airplane Flying Handbook
 
-**Total aviation knowledge chunks:** 167
+**Total aviation knowledge chunks:** 6343+
 
 ---
 
@@ -151,42 +160,55 @@ This enables more accurate retrieval of relevant knowledge chunks and creates a 
 
 ## Future Improvements
 
-
-PDF knowledge ingestion
-Image understanding
-Aviation diagram analysis
-Expanded aviation knowledge base
-Advanced evaluation benchmarks
-Cloud deployment
+- Aviation Topic Explorer
+- Learning Mode with quizzes and explanations
+- Enhanced source citations
+- Search analytics visualizations
+- Multi-document upload and comparison
+- Aviation diagram understanding
+- OCR support for scanned PDFs
+- Cloud deployment
 
 ---
+
+## Dynamic PDF Question Answering
+
+Users can upload aviation manuals, lecture notes, and PDF documents and ask questions directly from the uploaded content.
+
+### Example
+
+PDF:
+Untitled document.pdf
+
+Question:
+What engines does the SkyDragon X1 use?
+
+Answer:
+The SkyDragon X1 aircraft uses Phoenix-900 engines.
+
+Source:
+Untitled document.pdf | Chunk 0
 
 ## Project Structure
 
 aviation-ai/
 ├── app.py
+├── data/
+│   ├── aircraft_specs.json
+│   ├── phak.txt
+│   └── airplane_flying_handbook.txt
+├── docs/
+├── pdfs/
+├── screenshots/
+├── src/
+│   ├── ingest_pdf.py
+│   ├── build_chunk_index.py
+│   └── build_faiss_index.py
+├── tests/
 ├── aviation_chunk_index.pkl
 ├── aviation_faiss.index
-├── data/
-├── docs/
-├── src/
-├── tests/
 └── README.md
 
-
-
-
-## Features
-
-- Semantic search using sentence embeddings
-- Chunk-based retrieval system
-- Retrieval-Augmented Generation (RAG)
-- Local Llama 3 inference through Ollama
-- Streamlit web application
-- Source-backed answers with citations
-- Aircraft-aware retrieval optimization
-- Conversational memory for follow-up questions
-- Upload PDF and chat with user-provided documents
 
 
 ## Upload PDF & Chat With It
@@ -212,8 +234,13 @@ The SkyDragon X1 aircraft uses Phoenix-900 engines.
 - Perform semantic retrieval over uploaded documents
 - Answer questions using retrieved document context
 
+
+---
+
 ## Author
 
 Eva Sharma
+B.Tech Computer Science and Engineering
+Vellore Institute of Technology (VIT)
 
-AI & Software Development Portfolio Project
+AI • Retrieval-Augmented Generation • NLP • Software Engineering

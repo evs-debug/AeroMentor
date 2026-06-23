@@ -565,9 +565,17 @@ Answer:
         )
     )
 
-    with st.expander("📚 Sources"):
+    source_names = {
+        "phak.txt":
+            "FAA Pilot's Handbook of Aeronautical Knowledge",
 
-        shown_sources = set()
+        "airplane_flying_handbook.txt":
+            "FAA Airplane Flying Handbook"
+    }
+
+    sources = {}
+
+    with st.expander("📚 Sources"):
 
         for (
             filename,
@@ -576,16 +584,35 @@ Answer:
             text
         ) in top_chunks:
 
-            source = (
-                f"{filename}"
-                f" | Chunk {chunk_number}"
+            if filename not in sources:
+                sources[filename] = []
+
+            sources[filename].append(
+                chunk_number
             )
 
-            if (
-                score >= 0.60
-                and source not in shown_sources
-            ):
+        for (
+            filename,
+            chunks
+        ) in sources.items():
 
-                shown_sources.add(source)
+            display_name = source_names.get(
+                filename,
+                filename
+            )
 
-                st.write(source)
+            st.write(
+                f"📄 {display_name}"
+            )
+
+            st.caption(
+                f"Retrieved Chunks: {len(chunks)}"
+            )
+
+            st.caption(
+                "Chunk IDs: " +
+                ", ".join(
+                    str(chunk)
+                    for chunk in chunks
+                )
+            )
