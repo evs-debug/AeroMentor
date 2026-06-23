@@ -1,29 +1,54 @@
+import os
+
 from pypdf import PdfReader
 
-reader = PdfReader(
-    "pdfs/phak.pdf"
-)
+for filename in os.listdir("pdfs"):
 
-text = ""
+    if not filename.endswith(".pdf"):
+        continue
 
-for page in reader.pages:
+    path = os.path.join(
+        "pdfs",
+        filename
+    )
 
-    page_text = page.extract_text()
+    reader = PdfReader(path)
 
-    if page_text:
-        text += page_text + "\n"
+    text = ""
 
-with open(
-    "docs/phak.txt",
-    "w",
-    encoding="utf-8"
-) as file:
+    for page in reader.pages:
 
-    file.write(text)
+        page_text = page.extract_text()
 
-print(
-    f"Extracted {len(reader.pages)} pages."
-)
-print(
-    f"Characters extracted: {len(text)}"
-)
+        if page_text:
+            text += page_text + "\n"
+
+    output_name = (
+        filename.replace(
+            ".pdf",
+            ".txt"
+        )
+    )
+
+    output_path = os.path.join(
+        "data",
+        output_name
+    )
+
+    with open(
+        output_path,
+        "w",
+        encoding="utf-8"
+    ) as file:
+
+        file.write(text)
+
+    print(
+        f"Converted {filename}"
+    )
+    print(
+        f"Pages: {len(reader.pages)}"
+    )
+    print(
+        f"Characters: {len(text)}\n"
+    )

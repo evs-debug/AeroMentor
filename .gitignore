@@ -1,0 +1,4 @@
+.DS_Store
+pdfs/*.pdf
+*.pkl
+*.index
