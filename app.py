@@ -1,17 +1,22 @@
 import pickle
-import subprocess
-import re
 import faiss
 import numpy as np
 import json
 import time
 import random
-
-
 import streamlit as st
+import os
 
 from sentence_transformers import SentenceTransformer
 from pypdf import PdfReader
+from groq import Groq
+
+
+client = Groq(
+    api_key=os.getenv(
+        "GROQ_API_KEY"
+    )
+)
 
 st.set_page_config(
     page_title="AeroMentor",
@@ -645,6 +650,12 @@ def load_database():
 
 model = load_model()
 database = load_database()
+client = Groq(
+    api_key=os.getenv(
+        "GROQ_API_KEY"
+    )
+)
+
 with open(
     "data/aircraft_specs.json",
     "r"
@@ -1234,16 +1245,17 @@ if question:
 
 
     prompt = f"""
-You are AeroMentor, an aviation instructor.
+You are AeroMentor, an expert aviation instructor.
 
 Answer ONLY using the provided context.
 
-If the answer is present in the context,
-answer using only that information.
+Be concise.
 
-If the answer truly cannot be found,
-say:
+If the context doesn't contain the answer, reply:
+
 "I do not have enough information in my knowledge base."
+
+Never invent facts.
 
 Previous Conversation:
 {history_text}
@@ -1263,19 +1275,27 @@ Answer:
         "AeroMentor is thinking..."
     ):
 
-        result = subprocess.run(
-            ["ollama", "run", "llama3", prompt],
-            capture_output=True,
-            text=True
+        completion = client.chat.completions.create(
+            model="llama-3.3-70b-versatile",
+            messages=[
+                {
+                    "role": "user",
+                    "content": prompt
+                }
+            ],
+            temperature=0.2,
+            max_tokens=512
         )
 
-
-
-    clean_output = re.sub(
-        r"\x1b\[[0-9;]*[A-Za-z]",
-        "",
-        result.stdout
+    clean_output = (
+        completion
+        .choices[0]
+        .message
+        .content
     )
+
+
+
 
     response_time = (
         time.time()
